@@ -1,0 +1,76 @@
+:root{--ink:#1d2433;--muted:#5b6475;--line:#d9dee7;--bg:#fbfaf7;--card:#fff;--accent:#c2410c;--accent-ink:#fff;--ok:#166534;--soft:#fff4ec}
+*{box-sizing:border-box}
+body{margin:0;font:17px/1.55 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;color:var(--ink);background:var(--bg)}
+a{color:var(--accent)}
+.wrap{max-width:880px;margin:0 auto;padding:0 18px}
+.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.banner{background:#fde68a;color:#422006;text-align:center;padding:6px 12px;font-size:14px}
+.top{border-bottom:1px solid var(--line);background:var(--card)}
+.top .row{min-height:56px}
+.brand{font-weight:800;font-size:20px;text-decoration:none;color:var(--ink)}
+nav a{margin-left:14px;color:var(--muted);text-decoration:none;font-size:15px}
+.hero{background:var(--soft);border-bottom:1px solid var(--line);padding:44px 0 30px}
+h1{font-size:clamp(28px,5vw,42px);line-height:1.15;margin:0 0 14px}
+h2{margin-top:42px}
+.lead{font-size:19px;max-width:720px}
+.btn{display:inline-block;background:var(--accent);color:var(--accent-ink);border:0;border-radius:8px;padding:12px 18px;font:inherit;font-weight:700;text-decoration:none;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--accent);border:2px solid var(--accent)}
+.btn.small{padding:6px 12px;font-size:14px}
+.facts{list-style:none;padding:0;margin:22px 0 0;display:grid;gap:8px}
+.facts li{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;font-size:15px}
+.grid{display:grid;gap:14px}
+fieldset{border:1px solid var(--line);border-radius:10px;background:var(--card);padding:14px 16px;display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(220px,1fr))}
+legend{font-weight:700;padding:0 6px}
+label{display:flex;flex-direction:column;font-size:14px;color:var(--muted);gap:4px}
+input,select,textarea{font:inherit;color:var(--ink);padding:8px 10px;border:1px solid var(--line);border-radius:6px;background:#fff}
+.hint{font-size:14px;color:var(--muted)}
+fieldset .hint{grid-column:1/-1;margin:0}
+.calc{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 18px}
+.calc table{width:100%;border-collapse:collapse}
+.calc td{padding:6px 0;border-bottom:1px solid var(--line)}
+.calc td:last-child{text-align:right;font-weight:700}
+.plan li{margin:4px 0}
+.letter{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:16px 18px;margin:16px 0;position:relative}
+.letter h3{margin:0 0 8px;font-size:17px}
+.letter pre{white-space:pre-wrap;font:15px/1.55 ui-serif,Georgia,serif;margin:0 0 10px}
+.letter.locked pre{filter:blur(5px);user-select:none;max-height:150px;overflow:hidden}
+.letter .lock{position:absolute;inset:auto 18px 16px 18px;text-align:center;font-weight:700}
+.tools{display:flex;gap:8px;flex-wrap:wrap}
+.buy{background:var(--soft);border:2px solid var(--accent);border-radius:12px;padding:16px 18px;margin:22px 0}
+.consent{flex-direction:row;align-items:flex-start;gap:8px;color:var(--ink);font-size:15px;margin:10px 0}
+.consent input{margin-top:4px}
+#paypal-buttons{max-width:420px;margin-top:8px}
+#paypal-buttons.disabled{opacity:.4;pointer-events:none}
+.thanks{background:#ecfdf3;border:2px solid var(--ok);border-radius:12px;padding:16px 18px;margin:22px 0}
+.kit{width:100%;border-collapse:collapse;background:var(--card)}
+.kit th,.kit td{border:1px solid var(--line);padding:8px 10px;text-align:left;font-size:15px}
+.kit td:not(:first-child){text-align:center;width:120px}
+details{background:var(--card);border:1px solid var(--line);border-radius:8px;padding:10px 14px;margin:8px 0}
+summary{font-weight:700;cursor:pointer}
+.foot{margin-top:50px;border-top:1px solid var(--line);padding:18px 0 30px;font-size:15px}
+.draft{background:#fee2e2;color:#7f1d1d;border:2px solid #b91c1c;border-radius:8px;padding:10px 14px;font-weight:700}
+.legal main{padding:20px 18px}
+#print-area{display:none}
+@media print{
+  body *{visibility:hidden}
+  #print-area,#print-area *{visibility:visible}
+  #print-area{display:block;position:absolute;left:0;top:0;width:100%;padding:20mm;font:12pt/1.5 Georgia,serif;white-space:pre-wrap}
+}
+/* UX review 2026-10-11: tap targets of at least 44 px, visible keyboard focus */
+nav a{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:44px;padding:0 6px;margin-left:6px}
+.brand{display:inline-flex;align-items:center;min-height:44px}
+input,select,textarea{min-height:44px}
+.btn{min-height:44px}
+.btn.small{min-height:44px;display:inline-flex;align-items:center}
+summary{padding:10px 0;min-height:44px}
+.foot a{display:inline-block;padding:12px 2px}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid var(--accent);outline-offset:2px}
+.eyebrow{margin:0 0 10px;font-size:15px;font-weight:700;color:var(--accent);text-transform:none}
+/* Guide pages (scripts/build_seo_pages.py) */
+.guide main{padding:20px 18px}
+.guide .lead{font-size:18px}
+.data td,.data th{text-align:left!important;width:auto!important}
+.excerpt{white-space:pre-wrap;font:15px/1.55 ui-serif,Georgia,serif;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:14px 16px}
+.cta-box{background:var(--soft);border:2px solid var(--accent);border-radius:12px;padding:6px 18px 16px;margin:32px 0 16px}
+.guides li{margin:10px 0}
+.table-scroll,.guide table{display:block;overflow-x:auto}

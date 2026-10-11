@@ -1,0 +1,288 @@
+{
+ "checked": "2026-10-11",
+ "about": "Statutory late payment interest for business debts per EU country. ref: ecb = ECB rate in force on 1 January or 1 July (site/rates.json eu_reference), de_basiszins = site/rates.json national series, manual = no stored reference rate, the user enters the rate. verified: the margin was read in the official source on the date in checked.",
+ "default": {
+  "code": "",
+  "name": "the EU minimum (euro countries)",
+  "ref": "ecb",
+  "margin": 8,
+  "ref_name": "ECB reference rate",
+  "source": "https://www.legislation.gov.uk/eudr/2011/7/article/2",
+  "source_label": "Directive 2011/7/EU, Art. 2(6)",
+  "verified": true
+ },
+ "countries": [
+  {
+   "code": "AT",
+   "name": "Austria",
+   "ref": "manual",
+   "margin": 9.2,
+   "source": "https://www.ris.bka.gv.at/GeltendeFassung.wxe?Abfrage=Bundesnormen&Gesetzesnummer=10001702&Artikel=&Paragraf=456",
+   "source_label": "UGB § 456",
+   "note": "Austrian law uses the OeNB base rate (Basiszinssatz) plus 9,2 points.",
+   "verified": true
+  },
+  {
+   "code": "BE",
+   "name": "Belgium",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://www.ejustice.just.fgov.be/eli/wet/2002/08/02/2002012417/justel",
+   "source_label": "Wet van 2 augustus 2002 (Justel)",
+   "note": "The rate for Belgium has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "BG",
+   "name": "Bulgaria",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://www.bnb.bg/Statistics/StBaseInterestRate/index.htm",
+   "source_label": "Bulgarian National Bank",
+   "note": "The rate for Bulgaria has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "HR",
+   "name": "Croatia",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32011L0007",
+   "source_label": "EUR-Lex, national measures for Directive 2011/7/EU",
+   "note": "The rate for Croatia has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "CY",
+   "name": "Cyprus",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32011L0007",
+   "source_label": "EUR-Lex, national measures for Directive 2011/7/EU",
+   "note": "The rate for Cyprus has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "CZ",
+   "name": "Czechia",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32011L0007",
+   "source_label": "EUR-Lex, national measures for Directive 2011/7/EU",
+   "note": "The rate for Czechia has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "DK",
+   "name": "Denmark",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://www.retsinformation.dk/eli/lta/2014/459",
+   "source_label": "Retsinformation",
+   "note": "The rate for Denmark has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "EE",
+   "name": "Estonia",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://www.riigiteataja.ee/akt/VÕS",
+   "source_label": "Riigi Teataja",
+   "note": "The rate for Estonia has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "FI",
+   "name": "Finland",
+   "ref": "manual",
+   "margin": 8,
+   "source": "https://opendata.finlex.fi/finlex/avoindata/v1/akn/fi/act/statute-consolidated/1982/633",
+   "source_label": "Korkolaki 633/1982, § 4a",
+   "note": "Finnish law uses the Bank of Finland reference rate (based on the ECB rate) plus 8 points.",
+   "verified": true
+  },
+  {
+   "code": "FR",
+   "name": "France",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://www.legifrance.gouv.fr/codes/article_lc/LEGIARTI000047022003",
+   "source_label": "Légifrance",
+   "note": "The rate for France has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "DE",
+   "name": "Germany",
+   "ref": "de_basiszins",
+   "margin": 9,
+   "ref_name": "Bundesbank base rate (Basiszinssatz)",
+   "source": "https://www.gesetze-im-internet.de/bgb/__288.html",
+   "source_label": "BGB § 288(2)",
+   "ref_source": "https://www.bundesbank.de/de/bundesbank/organisation/agb-und-regelungen/basiszinssatz-607820",
+   "ref_source_label": "Bundesbank",
+   "verified": true
+  },
+  {
+   "code": "GR",
+   "name": "Greece",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32011L0007",
+   "source_label": "EUR-Lex, national measures for Directive 2011/7/EU",
+   "note": "The rate for Greece has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "HU",
+   "name": "Hungary",
+   "ref": "manual",
+   "margin": 8,
+   "source": "https://net.jogtar.hu/jogszabaly?docid=a1300005.tv",
+   "source_label": "2013. évi V. törvény (Ptk.)",
+   "note": "Hungarian law uses the MNB central bank base rate valid on the first day of the half-year plus 8 points.",
+   "verified": true
+  },
+  {
+   "code": "IE",
+   "name": "Ireland",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://www.irishstatutebook.ie/eli/2012/si/580/made/en/print",
+   "source_label": "S.I. No. 580 of 2012",
+   "verified": true
+  },
+  {
+   "code": "IT",
+   "name": "Italy",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://www.normattiva.it/uri-res/N2Ls?urn:nir:stato:decreto.legislativo:2002-10-09;231~art2",
+   "source_label": "Decreto legislativo 231/2002, art. 2",
+   "verified": true
+  },
+  {
+   "code": "LV",
+   "name": "Latvia",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://likumi.lv/ta/id/225418-civillikums",
+   "source_label": "Civillikums (Civil Law)",
+   "verified": true
+  },
+  {
+   "code": "LT",
+   "name": "Lithuania",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://eur-lex.europa.eu/legal-content/EN/NIM/?uri=CELEX:32011L0007",
+   "source_label": "EUR-Lex, national measures for Directive 2011/7/EU",
+   "note": "The rate for Lithuania has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "LU",
+   "name": "Luxembourg",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://mj.gouvernement.lu/dam-assets/services-aux-citoyens/Loi-du-18-avril-2002-relative-aux-delais-de-paiement-et-aux-interets-de-retard.pdf",
+   "source_label": "Loi du 18 avril 2002",
+   "verified": true
+  },
+  {
+   "code": "MT",
+   "name": "Malta",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://legislation.mt/eli/ln/2012/272/eng/pdf",
+   "source_label": "Legal Notice 272 of 2012",
+   "verified": true
+  },
+  {
+   "code": "NL",
+   "name": "Netherlands",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://wetten.overheid.nl/BWBR0005289/2023-07-01/0/afdrukken",
+   "source_label": "Burgerlijk Wetboek, art. 6:120",
+   "verified": true
+  },
+  {
+   "code": "PL",
+   "name": "Poland",
+   "ref": "manual",
+   "margin": 10,
+   "source": "https://api.sejm.gov.pl/eli/acts/DU/2023/711/text.pdf",
+   "source_label": "Ustawa, Dz.U. 2023 poz. 711",
+   "note": "Polish law uses the NBP reference rate plus 10 points.",
+   "verified": true
+  },
+  {
+   "code": "PT",
+   "name": "Portugal",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://diariodarepublica.pt/dr/detalhe/decreto-lei/62-2013-261160",
+   "source_label": "Diário da República, DL 62/2013",
+   "note": "The rate for Portugal has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "RO",
+   "name": "Romania",
+   "ref": "manual",
+   "margin": null,
+   "source": "https://legislatie.just.ro/Public/DetaliiDocument/131085",
+   "source_label": "Portal legislativ",
+   "note": "The rate for Romania has not been checked yet.",
+   "verified": false
+  },
+  {
+   "code": "SK",
+   "name": "Slovakia",
+   "ref": "manual",
+   "margin": 9,
+   "source": "https://static.slov-lex.sk/static/SK/ZZ/2013/21/20130201.html",
+   "source_label": "Nariadenie vlády 21/2013",
+   "note": "The 2013 text of the Slovak regulation uses the ECB rate plus 9 points. Check the current version.",
+   "verified": true
+  },
+  {
+   "code": "SI",
+   "name": "Slovenia",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://pisrs.si/api/uradni-list/objava/u20261124.pdf",
+   "source_label": "Uradni list RS (official gazette)",
+   "verified": true
+  },
+  {
+   "code": "ES",
+   "name": "Spain",
+   "ref": "ecb",
+   "margin": 8,
+   "ref_name": "ECB reference rate",
+   "source": "https://www.boe.es/eli/es/l/2004/12/29/3/con",
+   "source_label": "Ley 3/2004",
+   "verified": true
+  },
+  {
+   "code": "SE",
+   "name": "Sweden",
+   "ref": "manual",
+   "margin": 8,
+   "source": "https://www.riksdagen.se/sv/dokument-och-lagar/dokument/svensk-forfattningssamling/rantelag-1975635_sfs-1975-635/",
+   "source_label": "Räntelag (1975:635)",
+   "note": "Swedish law uses the Riksbank reference rate plus 8 points.",
+   "verified": true
+  }
+ ]
+}
