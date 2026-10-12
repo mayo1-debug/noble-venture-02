@@ -1,17 +1,19 @@
-// Noble analytics standard, version 1 (12 October 2026).
+// Noble analytics standard, version 2 (12 October 2026). Version 2 stores nothing on a visitor's
+// device (§ 25 TDDDG, ePrivacy Art. 5(3)): no unique-visitor or first-source marks.
 // Source of truth: Operation-Noble standards/analytics/. Every Noble business copies this file
 // unchanged into its site and configures it only through window.NOBLE_CONFIG. Do not edit the copy.
 //
 // Hard core (README.md in this folder):
 // - Counts only when this script runs, so bots that do not run JavaScript are never counted.
-// - Owner and agent exclusion: ?noble=1 marks a browser, ?noble=0 clears it; automated browsers
+// - Owner and agent exclusion: ?noble=1 marks the owner's own browser (the only thing ever stored,
+//   and only on a device whose owner asked for it), ?noble=0 clears it; automated browsers
 //   (navigator.webdriver) and bot user agents are dropped.
 // - AI fetchers that do run JavaScript are counted only as ai_fetch, never as human.
 // - Human gate: a page load counts as "visit" at once, but as a qualified human only after a
 //   scroll, a click, a key press, a touch, any product event, or 5 seconds visible.
-// - Fixed funnel names: visit, qualified_visit, visitor_unique, visit_src_<channel>,
+// - Fixed funnel names: visit, qualified_visit, pageview_<page>, visit_src_<channel>,
 //   checkout_start, payment_complete (and payment_complete_sandbox), each with _src_<channel>
-//   for the first channel a browser arrived from.
+//   when the page was opened from a channel. Counts are per page load, never per browser.
 // - Visitors referred by an AI assistant (ChatGPT, Claude, Perplexity, Gemini, Copilot) are real
 //   people: they count as human with channel "ai".
 //
@@ -75,7 +77,6 @@
   if (!src && doc && doc.referrer) {
     try { if (AI_REF.test(new URL(doc.referrer).hostname)) src = 'ai'; } catch (e) {}
   }
-  var firstSrc = enabled ? store(function (s) { return s.getItem('noble_first_src'); }) : null;
 
   var page = (doc && doc.currentScript && doc.currentScript.getAttribute('data-page')) ||
     (doc && doc.body && doc.body.getAttribute('data-page')) ||
@@ -90,18 +91,7 @@
     qualified = true;
     send('qualified_visit');
     send('pageview_' + page);
-    if (store(function (s) { return s.getItem('noble_visitor_unique'); }) !== '1') {
-      store(function (s) { s.setItem('noble_visitor_unique', '1'); });
-      send('visitor_unique');
-    }
-    if (src && store(function (s) { return s.getItem('noble_src_' + src); }) !== '1') {
-      store(function (s) {
-        s.setItem('noble_src_' + src, '1');
-        if (!s.getItem('noble_first_src')) s.setItem('noble_first_src', src);
-      });
-      if (!firstSrc) firstSrc = src;
-      send('visit_src_' + src);
-    }
+    if (src) send('visit_src_' + src);
     while (queue.length) send(queue.shift());
     disarm();
   }
@@ -114,7 +104,7 @@
     sent[name] = true;
     qualify();
     send(name);
-    if (PER_SRC[name] && firstSrc) send(name + '_src_' + firstSrc);
+    if (PER_SRC[name] && src) send(name + '_src_' + src);
   }
 
   var GATE_EVENTS = ['scroll', 'pointerdown', 'keydown', 'touchstart'];
@@ -159,7 +149,7 @@
     doc.documentElement.setAttribute('data-noble-excluded', '1');
   }
 
-  root.NobleAnalytics = { track: track, enabled: enabled, reason: reason, version: 1, isQualified: function () { return qualified; } };
+  root.NobleAnalytics = { track: track, enabled: enabled, reason: reason, version: 2, isQualified: function () { return qualified; } };
   root.track = track;
   root.nobleTrack = track;
 })(typeof window !== 'undefined' ? window : this);
