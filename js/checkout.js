@@ -47,8 +47,8 @@
           }
         });
       },
-      onCancel: function () { status("Checkout cancelled. Nothing was charged."); track("checkout-cancel"); },
-      onError: function (err) { status("Something went wrong with PayPal. Nothing was charged. Please try again."); track("checkout-error"); if (window.console) console.error(err); }
+      onCancel: function () { status("Checkout cancelled. Nothing was charged."); track("checkout_cancel"); },
+      onError: function (err) { status("Something went wrong with PayPal. Nothing was charged. Please try again."); track("checkout_error"); if (window.console) console.error(err); }
     }).render("#paypal-buttons").then(function () { status("Choose PayPal or card to pay."); window.nobleCheckoutRendered = true; });
   }
 
