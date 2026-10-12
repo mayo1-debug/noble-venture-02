@@ -74,3 +74,35 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,te
 .cta-box{background:var(--soft);border:2px solid var(--accent);border-radius:12px;padding:6px 18px 16px;margin:32px 0 16px}
 .guides li{margin:10px 0}
 .table-scroll,.guide table{display:block;overflow-x:auto}
+/* Brand layer, 12 October 2026 (Operation-Noble standards/design): Overdue Kit is firm and
+   businesslike, for freelancers owed money. Source Serif 4 (letters), IBM Plex Sans and Mono (figures),
+   self-hosted (OFL). Paper, ink navy and a red OVERDUE stamp. Motif: ruled letter paper and the stamp. */
+@font-face{font-family:"Source Serif 4";src:url("../fonts/source-serif-4-latin-600-normal.woff2") format("woff2");font-weight:600;font-display:swap}
+@font-face{font-family:"Source Serif 4";src:url("../fonts/source-serif-4-latin-700-normal.woff2") format("woff2");font-weight:700;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url("../fonts/ibm-plex-sans-latin-400-normal.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"IBM Plex Sans";src:url("../fonts/ibm-plex-sans-latin-600-normal.woff2") format("woff2");font-weight:600 700;font-display:swap}
+@font-face{font-family:"IBM Plex Mono";src:url("../fonts/ibm-plex-mono-latin-500-normal.woff2") format("woff2");font-weight:500;font-display:swap}
+:root{--ink:#14213d;--muted:#4a5568;--line:#d5dbe5;--bg:#fffdf8;--card:#ffffff;--accent:#1b2a4a;--accent-ink:#ffffff;--soft:#f7f4ec;--stamp:#b42318}
+body{font-family:"IBM Plex Sans",ui-sans-serif,system-ui,sans-serif}
+h1,h2,h3,.brand,legend{font-family:"Source Serif 4",ui-serif,Georgia,serif}
+h1{font-weight:700;letter-spacing:-.005em}
+.brand{font-weight:700;font-size:22px}
+.brand::before{content:"";display:inline-block;width:10px;height:22px;margin-right:9px;background:var(--stamp);border-radius:1px;vertical-align:-3px}
+a{color:#1d4ed8}
+.top{border-bottom:3px double var(--line)}
+.hero{position:relative;overflow:hidden;background-color:var(--soft);
+  background-image:repeating-linear-gradient(to bottom,transparent 0 31px,rgba(20,33,61,.07) 31px 32px);
+  border-bottom:1px solid var(--line)}
+.hero .wrap{position:relative}
+.hero .wrap::after{content:"OVERDUE";position:absolute;right:18px;top:-18px;transform:rotate(-9deg);
+  border:3px solid var(--stamp);color:var(--stamp);font:500 18px/1 "IBM Plex Mono",ui-monospace,monospace;
+  letter-spacing:.18em;padding:7px 10px 6px;border-radius:4px;opacity:.8;pointer-events:none}
+.eyebrow{color:var(--stamp);font-family:"IBM Plex Mono",ui-monospace,monospace;font-weight:500;letter-spacing:.04em}
+.btn{border-radius:3px;letter-spacing:.01em}
+.btn.ghost{background:var(--card);color:var(--accent);border:2px solid var(--accent)}
+.facts li{border-radius:2px;border-left:4px solid var(--accent);font-family:"IBM Plex Mono",ui-monospace,monospace;font-size:14px}
+.calc td:last-child,.price{font-family:"IBM Plex Mono",ui-monospace,monospace}
+.letter{border-radius:2px;box-shadow:0 1px 0 var(--line),0 6px 18px rgba(20,33,61,.06)}
+.buy{border-radius:3px;border-color:var(--accent);background:var(--card)}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #1d4ed8}
+@media (max-width:640px){.hero .wrap::after{top:-28px;right:8px;font-size:13px;padding:5px 7px 4px}}
