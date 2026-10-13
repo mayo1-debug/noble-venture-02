@@ -101,7 +101,7 @@
       <p><strong><span class="price">EUR 19</span> once</strong>. No VAT is charged (small business under Section 19 UStG). Use it for every overdue invoice, on this browser, with no account.</p>
       <label class="consent"><input type="checkbox" id="consent"> I want access straight away. I understand that I lose my legal 14-day right of withdrawal once access starts. The voluntary 14-day refund below still applies.</label>
       <div id="paypal-buttons"></div>
-      <p class="hint" id="pp-status">Tick the box above to enable checkout.</p>
+      <p class="hint" id="pp-status">Tick the box above, then press the order button.</p>
       <p class="hint">Payment by PayPal or card through PayPal. Not happy? Ask for a refund within 14 days, no questions. See the <a href="legal/refund.html">refund policy</a>.</p>
     </div>
   </div>
@@ -141,7 +141,7 @@
   <h2>Questions</h2>
   <details><summary>Is this legal advice?</summary><p>No. Overdue Kit gives you letter templates and a calculator based on the public rules linked above. For large debts or a dispute about the work itself, talk to a lawyer.</p></details>
   <details><summary>Does my client have to pay the interest and compensation?</summary><p>In the EU and UK, the law gives a business creditor these rights on late business invoices. Whether you claim them is your choice. Many people use letter 3 as the point where they claim them. The kit cannot force anyone to pay.</p></details>
-  <details><summary>What happens after I pay?</summary><p>Letters 2 to 5, the calendar file and the print layout unlock at once on this page, in this browser. You see your PayPal order ID. Keep it.</p></details>
+  <details><summary>What happens after I pay?</summary><p>Letters 2 to 5, the calendar file and the print layout unlock at once on this page, in this browser. You get an order confirmation to download, with your PayPal order ID. Keep it.</p></details>
   <details><summary>Is my data uploaded?</summary><p>No. The calculator and letters run in your browser. Only the payment goes through PayPal. See the <a href="legal/privacy.html">privacy policy</a>.</p></details>
   <details><summary>Can I get a refund?</summary><p>Yes. Ask within 14 days of purchase and you get your money back. See the <a href="legal/refund.html">refund policy</a>.</p></details>
   <details><summary>Who makes this?</summary><p>An independent maker in Germany. See the <a href="legal/imprint.html">imprint</a>.</p></details>
@@ -150,12 +150,13 @@
 
 <footer class="foot">
   <div class="wrap">
-    <p><a href="guides/">Guides: rates and letters</a> · <a href="legal/imprint.html">Imprint</a> · <a href="legal/terms.html">Terms</a> · <a href="legal/privacy.html">Privacy</a> · <a href="legal/refund.html">Refund</a></p>
+    <p><a href="guides/">Guides: rates and letters</a> · <a href="legal/imprint.html">Imprint</a> · <a href="legal/terms.html">Terms</a> · <a href="legal/privacy.html">Privacy</a> · <a href="legal/refund.html">Refund</a> · <a href="legal/withdraw.html">Withdraw from contract</a></p>
     <p class="hint">Overdue Kit gives templates and calculations, not legal advice.</p>
   </div>
 </footer>
 <div id="print-area"></div>
 <script src="js/app.js"></script>
+<script src="js/noble-order.js"></script>
 <script src="js/checkout.js"></script>
 </body>
 </html>

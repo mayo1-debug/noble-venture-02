@@ -1,9 +1,11 @@
 // PayPal Smart Buttons checkout. Client ID and environment come only from config.js.
-// The SDK loads only after the buyer ticks the consent box, so PayPal sees no visitor who is not buying.
+// The buyer ticks the consent box, then presses the own order button (Section 312j(3) BGB, from noble-order.js).
+// Only that click loads the PayPal SDK, so PayPal sees no visitor who is not buying.
 (function () {
   "use strict";
   var cfg = window.NOBLE_CONFIG || {};
-  var loaded = false;
+  var loaded = false, consented = false, order = null;
+  var PRODUCT = "Overdue Kit, full letter kit (digital, instant access)";
   function $(s) { return document.querySelector(s); }
   function status(t) { var el = $("#pp-status"); if (el) el.textContent = t; }
   function track(n) { if (window.nobleTrack) window.nobleTrack(n); }
@@ -21,17 +23,17 @@
     s.src = "https://www.paypal.com/sdk/js?client-id=" + encodeURIComponent(cfg.PAYPAL_CLIENT_ID) +
       "&currency=" + encodeURIComponent(cfg.CURRENCY || "EUR") + "&intent=capture&components=buttons";
     s.onload = render;
-    s.onerror = function () { loaded = false; status("PayPal could not be loaded. Check your connection or ad blocker, then tick the box again."); };
+    s.onerror = function () { loaded = false; status("PayPal could not be loaded. Check your connection or ad blocker, then press the order button again."); if (order) order.button.hidden = false; };
     document.head.appendChild(s);
   }
 
   function render() {
     window.paypal.Buttons({
-      style: { layout: "vertical", label: "pay", shape: "rect" },
+      style: { layout: "vertical", label: "buynow", shape: "rect" },
       createOrder: function (data, actions) {
         track("checkout_start");
         return actions.order.create({
-          purchase_units: [{ description: "Overdue Kit, full letter kit (digital, instant access)",
+          purchase_units: [{ description: PRODUCT,
             amount: { currency_code: cfg.CURRENCY || "EUR", value: cfg.PRICE } }],
           application_context: { shipping_preference: "NO_SHIPPING", brand_name: "Overdue Kit" }
         });
@@ -41,7 +43,13 @@
         return actions.order.capture().then(function (details) {
           if (details && details.status === "COMPLETED") {
             track(cfg.PAYPAL_ENV === "live" ? "payment_complete" : "payment_complete_sandbox");
-            window.overdueKitUnlock(details.id);
+            status("Payment complete. Download your order confirmation below.");
+            // The confirmation (Section 312f BGB) is offered before the unlock.
+            return window.NobleOrder.confirm({
+              lang: "en", business: "Overdue Kit", product: PRODUCT, price: cfg.PRICE, currency: cfg.CURRENCY || "EUR",
+              orderId: details.id, consentText: $("#consent").parentNode.textContent.trim(), email: cfg.SUPPORT_EMAIL,
+              termsUrl: "legal/terms.html", withdrawalUrl: "legal/refund.html", withdrawUrl: "legal/withdraw.html", mount: "#thanks"
+            }).catch(function () {}).then(function () { window.overdueKitUnlock(details.id); });
           } else {
             status("Payment was not completed (status " + (details && details.status) + "). You have not been charged for an incomplete order. Order ID: " + data.orderID);
           }
@@ -57,11 +65,13 @@
     if (!box) return;
     var problem = ready();
     if (problem) { status(problem); box.disabled = true; return; }
-    btns.classList.add("disabled");
     box.addEventListener("change", function () {
-      btns.classList.toggle("disabled", !box.checked);
-      if (box.checked && !loaded) { track("consent"); load(); }
-      if (!box.checked) status("Tick the box above to enable checkout.");
+      if (box.checked && !consented) { consented = true; track("consent"); }
+      status(box.checked ? "Press the order button to continue to PayPal." : "Tick the box above, then press the order button.");
+    });
+    order = window.NobleOrder.gate({
+      consent: box, paypal: btns, lang: "en", price: cfg.PRICE, currency: cfg.CURRENCY || "EUR",
+      onOrder: function () { if (!loaded) load(); else status("Choose PayPal or card to pay."); }
     });
   });
 })();
