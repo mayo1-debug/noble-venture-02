@@ -106,3 +106,8 @@ a{color:#1d4ed8}
 .buy{border-radius:3px;border-color:var(--accent);background:var(--card)}
 a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,summary:focus-visible{outline:3px solid #1d4ed8}
 @media (max-width:640px){.hero .wrap::after{top:-28px;right:8px;font-size:13px;padding:5px 7px 4px}}
+
+.newsletter{margin-top:40px;border-top:1px solid var(--line);padding-top:20px}
+.newsletter-form{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.newsletter-form label{position:absolute;left:-9999px}
+.newsletter-form input[type=email]{flex:1 1 220px;min-height:44px;padding:8px 10px;font:inherit;border:1px solid var(--line);border-radius:6px}

@@ -16,6 +16,8 @@ window.NOBLE_CONFIG = {
   // Optional second backend: GoatCounter endpoint, for example "https://YOURCODE.goatcounter.com/count".
   // Empty string means GoatCounter is OFF.
   GOATCOUNTER_ENDPOINT: "",
+  // Buttondown username for the newsletter sign-up form. Empty string means the form is hidden.
+  BUTTONDOWN_USERNAME: "supporttoolkitsdesk",
   // Owner sets a real support address before switching to live. Live checkout stays off while this is empty.
   SUPPORT_EMAIL: "support.toolkits.desk@gmail.com"
 };
